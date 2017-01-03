@@ -1,0 +1,255 @@
+a0  @ adr  0  : *  b    0x7c (-> 0x7E)    *  reset
+7c  @ adr  1  : (cont.)
+a0  @ adr  2  : *  b    0x3c (-> 0x40)    *  irq
+3c  @ adr  3  : (cont.)
+00  @ adr  4  :
+00  @ adr  5  :
+00  @ adr  6  :
+00  @ adr  7  :
+00  @ adr  8  :
+00  @ adr  9  :
+00  @ adr  a  :
+00  @ adr  b  :
+00  @ adr  c  :
+00  @ adr  d  :
+0a  @ adr  e  : *  0a                     *  unsigned char z = 10;
+00  @ adr  f  :
+00  @ adr 10  :
+00  @ adr 11  :
+00  @ adr 12  :
+00  @ adr 13  :
+00  @ adr 14  :
+00  @ adr 15  :
+00  @ adr 16  :
+00  @ adr 17  :
+00  @ adr 18  :
+00  @ adr 19  :
+00  @ adr 1a  :
+00  @ adr 1b  :
+00  @ adr 1c  :
+00  @ adr 1d  :
+00  @ adr 1e  :
+00  @ adr 1f  :
+00  @ adr 20  :
+00  @ adr 21  :
+00  @ adr 22  :
+00  @ adr 23  :
+00  @ adr 24  :
+00  @ adr 25  :
+00  @ adr 26  :
+00  @ adr 27  :
+00  @ adr 28  :
+00  @ adr 29  :
+00  @ adr 2a  :
+00  @ adr 2b  :
+00  @ adr 2c  :
+00  @ adr 2d  :
+00  @ adr 2e  :
+00  @ adr 2f  :
+00  @ adr 30  :
+00  @ adr 31  :
+00  @ adr 32  :
+00  @ adr 33  :
+00  @ adr 34  :
+00  @ adr 35  :
+00  @ adr 36  :
+00  @ adr 37  :
+00  @ adr 38  :
+00  @ adr 39  :
+00  @ adr 3a  :
+00  @ adr 3b  :
+00  @ adr 3c  :
+00  @ adr 3d  :
+00  @ adr 3e  :
+00  @ adr 3f  :
+10  @ adr 40  : *  sub  sp, #1            *  /* sauve des regs modifiés */
+11  @ adr 41  : (cont.)
+78  @ adr 42  : *  str  r8, [sp,#0]       *
+01  @ adr 43  : (cont.)
+10  @ adr 44  : *  sub  sp, #1            *
+11  @ adr 45  : (cont.)
+79  @ adr 46  : *  str  r9, [sp,#0]       *
+01  @ adr 47  : (cont.)
+1d  @ adr 48  : *  mov  r8, #E            *
+e8  @ adr 49  : (cont.)
+59  @ adr 4a  : *  ldr  r9, [r8, #0]      *
+08  @ adr 4b  : (cont.)
+3c  @ adr 4c  : *  addS r9, #5            *  z = z+5 /*modifie indicateurs */
+19  @ adr 4d  : (cont.)
+79  @ adr 4e  : *  str  r9, [r8,#0]       *
+08  @ adr 4f  : (cont.)
+59  @ adr 50  : *  ldr  r9, [sp,#0]       *  /* restaure regs */
+01  @ adr 51  : (cont.)
+1c  @ adr 52  : *  add  sp,#1             *
+11  @ adr 53  : (cont.)
+58  @ adr 54  : *  ldr  r8, [sp,#0]       *
+01  @ adr 55  : (cont.)
+1c  @ adr 56  : *  add  sp,#1             *
+11  @ adr 57  : (cont.)
+F0  @ adr 58  : *  rti                    * 
+00  @ adr 59  : (cont.)
+00  @ adr 5a  :
+00  @ adr 5b  :
+00  @ adr 5c  :
+00  @ adr 5d  :
+00  @ adr 5e  :
+00  @ adr 5f  :
+00  @ adr 60  :
+00  @ adr 61  :
+00  @ adr 62  :
+00  @ adr 63  :
+00  @ adr 64  :
+00  @ adr 65  :
+00  @ adr 66  :
+00  @ adr 67  :
+00  @ adr 68  :
+00  @ adr 69  :
+00  @ adr 6a  :
+00  @ adr 6b  :
+00  @ adr 6c  :
+00  @ adr 6d  :
+00  @ adr 6e  :
+00  @ adr 6f  :
+00  @ adr 70  :
+00  @ adr 71  :
+00  @ adr 72  :
+00  @ adr 73  :
+00  @ adr 74  :
+00  @ adr 75  :
+00  @ adr 76  :
+00  @ adr 77  :
+00  @ adr 78  :
+00  @ adr 79  :
+00  @ adr 7a  :
+00  @ adr 7b  :
+00  @ adr 7c  :
+00  @ adr 7d  :
+1d  @ adr 7e  : *  mov  sp, #0            *
+01  @ adr 7f  : (cont.)
+1d  @ adr 80  : *  mov  r8, #1            *        x = 1
+18  @ adr 81  : (cont.)
+30  @ adr 82  : *  subS r8, #1            *  b1:   x = x - 1  
+18  @ adr 83  : (cont.)
+a4  @ adr 84  : *  bcs  0xfc              *        if (x >= 0) goto b1
+fc  @ adr 85  : (cont.)
+e0  @ adr 86  : *  cleari                 *  /* autoriser IT */
+00  @ adr 87  : (cont.)
+1d  @ adr 88  : *  mov  r9, #5            *        y = 5
+59  @ adr 89  : (cont.)
+30  @ adr 8a  : *  subS r9, #1            *  b2:   y = y - 1  
+19  @ adr 8b  : (cont.)
+a4  @ adr 8c  : *  bcs  0xfc              *        if (y >= 0) goto b2
+fc  @ adr 8d  : (cont.)
+e8  @ adr 8e  : *  seti                   *
+00  @ adr 8f  : (cont.)
+30  @ adr 90  : *  subS r8, #1            *  b3:   x = x - 1  
+18  @ adr 91  : (cont.)
+a0  @ adr 92  : *  b    0xfc              *        goto b3
+fc  @ adr 93  : (cont.)
+00  @ adr 94  :
+00  @ adr 95  :
+00  @ adr 96  :
+00  @ adr 97  :
+00  @ adr 98  :
+00  @ adr 99  :
+00  @ adr 9a  :
+00  @ adr 9b  :
+00  @ adr 9c  :
+00  @ adr 9d  :
+00  @ adr 9e  :
+00  @ adr 9f  :
+00  @ adr a0  :
+00  @ adr a1  :
+00  @ adr a2  :
+00  @ adr a3  :
+00  @ adr a4  :
+00  @ adr a5  :
+00  @ adr a6  :
+00  @ adr a7  :
+00  @ adr a8  :
+00  @ adr a9  :
+00  @ adr aa  :
+00  @ adr ab  :
+00  @ adr ac  :
+00  @ adr ad  :
+00  @ adr ae  :
+00  @ adr af  :
+00  @ adr b0  :
+00  @ adr b1  :
+00  @ adr b2  :
+00  @ adr b3  :
+00  @ adr b4  :
+00  @ adr b5  :
+00  @ adr b6  :
+00  @ adr b7  :
+00  @ adr b8  :
+00  @ adr b9  :
+00  @ adr ba  :
+00  @ adr bb  :
+00  @ adr bc  :
+00  @ adr bd  :
+00  @ adr be  :
+00  @ adr bf  :
+00  @ adr c0  :
+00  @ adr c1  :
+00  @ adr c2  :
+00  @ adr c3  :
+00  @ adr c4  :
+00  @ adr c5  :
+00  @ adr c6  :
+00  @ adr c7  :
+00  @ adr c8  :
+00  @ adr c9  :
+00  @ adr ca  :
+00  @ adr cb  :
+00  @ adr cc  :
+00  @ adr cd  :
+00  @ adr ce  :
+00  @ adr cf  :
+00  @ adr d0  :
+00  @ adr d1  :
+00  @ adr d2  :
+00  @ adr d3  :
+00  @ adr d4  :
+00  @ adr d5  :
+00  @ adr d6  :
+00  @ adr d7  :
+00  @ adr d8  :
+00  @ adr d9  :
+00  @ adr da  :
+00  @ adr db  :
+00  @ adr dc  :
+00  @ adr dd  :
+00  @ adr de  :
+00  @ adr df  :
+00  @ adr e0  :
+00  @ adr e1  :
+00  @ adr e2  :
+00  @ adr e3  :
+00  @ adr e4  :
+00  @ adr e5  :
+00  @ adr e6  :
+00  @ adr e7  :
+00  @ adr e8  :
+00  @ adr e9  :
+00  @ adr ea  :
+00  @ adr eb  :
+00  @ adr ec  :
+00  @ adr ed  :
+00  @ adr ee  :
+00  @ adr ef  :
+00  @ adr f0  :
+00  @ adr f1  :
+00  @ adr f2  :
+00  @ adr f3  :
+00  @ adr f4  :
+00  @ adr f5  :
+00  @ adr f6  :
+00  @ adr f7  :
+00  @ adr f8  :
+00  @ adr f9  :
+00  @ adr fa  :
+00  @ adr fb  :
+00  @ adr fc  :
+00  @ adr fd  :
+00  @ adr fe  :  ATTENTION BUG : ne pas mettre la ligne ff

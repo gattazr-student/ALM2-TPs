@@ -1,0 +1,21 @@
+Fichiers contenus dans cette archive :
+
+microcode.muc :
+  le fichier de microcode sans le traitement de load et store
+
+s_to_ob.pl :
+  script Perl de converstion de fichiers *.s en *.ob
+  Attention : les opcodes doivent être manuellement calculé
+  Ce n'est pas un compilateur (cf les exemples)
+  Attention au bug : ne pas mettre la dernière ligne d'adresse ff dans les
+  fichiers .ob --> fait planter procesim.
+
+exemple_noit.s :
+  exemple de code sans interruption.
+  Attention, quelques instructions restent à coder en hexa
+
+exemple_it_reset.s :
+  le même que précédemment, mais on passe en mode user au début
+
+exemple_it_irq.s :
+  un exemple avec un traitant irq
